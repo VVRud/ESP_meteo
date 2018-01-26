@@ -18,8 +18,8 @@
 #include "DHT.h"
 
 //Wifi connection to the router
-const char ssid[] = "Elefant";     // network SSID (name)
-const char password[] = "0982879704"; // network key
+const char ssid[] = "****************";     // network SSID (name)
+const char password[] = "****************"; // network key
 
 //Time
 unsigned int localPort = 2390;      // local port to listen for UDP packetsconst
@@ -35,16 +35,16 @@ unsigned long epoch;
 int utc = 2;
 
 //ThingSpeak
-unsigned long TSChannelNumber = 403881;
-const char * writeKey = "NXZ3HFNFRS2VPTFU";
+unsigned long TSChannelNumber = 00000000;
+const char * writeKey = "WRITE_KEY";
 
 //TelegramBot
 int Bot_mtbs = 250; //mean time between scan messages
 long Bot_lasttime;   //last time messages' scan has been done
 
 // Initialize Telegram BOT
-#define BOTtoken "542825045:AAFgrGOPItCzr0XuGZXN7VwgEB40NoABt0k"  // Bot Token
-#define weather_channel_id "-1001328113291"
+#define BOTtoken "BOT_TOKEN" // Bot Token
+#define weather_channel_id "CHANNEL_ID"
 
 //Initialize DHT
 #define DHTPIN 5     // what pin we're connected to
@@ -185,7 +185,7 @@ void handleNewMessages(int numNewMessages) {
       bot.sendMessage(chat_id, generateWeather(), "");
     }
     if (text == "/start") {
-      String welcome = "Welcome from WeatheKPI_bot\n";
+      String welcome = "Welcome from Weather_bot\n";
       welcome = welcome + "/weather : to get real-time weather on the KPI\n";
       bot.sendMessage(chat_id, welcome, "Markdown");
     }
